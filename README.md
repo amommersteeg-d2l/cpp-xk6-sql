@@ -24,13 +24,14 @@ Need to complete the following steps to enable TCP/IP connections:
 2. Expand `SQL Server Network Configuration` and select `Protocols for MSSQSLSERVER`
 3. Set TCP/IP to `Enabled`
 4. Restart computer
+
 Reference: https://stackoverflow.com/questions/32010749/go-with-sql-server-driver-is-unable-to-connect-successfully-login-fail
 
 - Use the connection string like the following to use Windows Authentication:
 `'sqlserver://D2L-4bChsM4223c:1433?database=Test&trusted+connection=yes'`
 
 ### Example of results
-After running the `test.js` script with `2` VUs for a duration of `10s`
+After running the `test.js` script with `2` VUs for a duration of `10s` against a local db.
 ![results](./assests/results.png)
 - Can read this as the the database/query is able to support 2 Vus with an average duration of 155.02µs per transaction
 - Or 12540.51978 queries per second with an average time of 155.02µs
