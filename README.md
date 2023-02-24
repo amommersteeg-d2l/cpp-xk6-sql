@@ -5,7 +5,7 @@ Repo: https://github.com/grafana/xk6-sql
 Blog: https://k6.io/blog/load-testing-sql-databases-with-k6/
 
 ## Build binary
-Binary is build using xk6-cmd with the change to the build command to include xk6-sql 
+Binary is build using xk6-cmd with the change to the build command to include xk6-sql, command assumes you are working from the xk6-cmd repo/project
 ```
 xk6 build --with xk6-cmd=. --with github.com/grafana/xk6-sql
 ```
@@ -28,3 +28,11 @@ Reference: https://stackoverflow.com/questions/32010749/go-with-sql-server-drive
 
 - Use the connection string like the following to use Windows Authentication:
 `'sqlserver://D2L-4bChsM4223c:1433?database=Test&trusted+connection=yes'`
+
+### Example of results
+After running the `test.js` script with `2` VUs for a duration of `10s`
+![results](./assests/results.png)
+- Can read this as the the database/query is able to support 2 Vus with an average duration of 155.02µs per transaction
+- Or 12540.51978 queries per second with an average time of 155.02µs
+- Min `0s` most likely means that the queries were too quick for the timer in k6
+- Med `0s` most likely means that a major of queries were too quick for the timer in k6
