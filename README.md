@@ -27,7 +27,16 @@ Need to complete the following steps to enable TCP/IP connections:
 Reference: https://stackoverflow.com/questions/32010749/go-with-sql-server-driver-is-unable-to-connect-successfully-login-fail
 
 - Use the connection string like the following to use Windows Authentication:
-`'sqlserver://D2L-4bChsM4223c:1433?database=Test&trusted+connection=yes'`
+```
+'const connectionString = sqlserver://COMPUTER-NAME:1433?database=Test&trusted+connection=yes'
+```
+
+#### Connection to remote server
+It is possible to connect to a remote Dev LMS server using your RHU (colo) account. If you are using the extension from a test controller instance you are already logged in with RHU and the connection string can be:
+```
+const connectionString = 'sqlserver://IP-ADDRESS:1433?database=Test&trusted+connection=yes'
+```
+Where the `IP-ADDRESS` is the ip of the database instance. It looks like there is IP blocking on the database instance and this sort of connection only works from within AWS instances (included IP addresses)
 
 ### Example of results
 After running the `test.js` script with `2` VUs for a duration of `10s`
