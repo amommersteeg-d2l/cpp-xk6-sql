@@ -7,6 +7,7 @@ Blog: https://k6.io/blog/load-testing-sql-databases-with-k6/
 ## Build binary
 Binary is build using xk6-cmd with the change to the build command to include xk6-sql, command assumes you are working from the xk6-cmd repo/project
 ```
+go install go.k6.io/xk6/cmd/xk6@latest
 xk6 build --with xk6-cmd=. --with github.com/grafana/xk6-sql
 ```
 
