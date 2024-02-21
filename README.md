@@ -46,3 +46,17 @@ After running the `test.js` script with `2` VUs for a duration of `10s` against 
 - Or 12540.51978 queries per second with an average time of 155.02µs
 - Min `0s` most likely means that the queries were too quick for the timer in k6
 - Med `0s` most likely means that a major of queries were too quick for the timer in k6
+
+## Running k6 script
+ `./k6 run ./test.js --no-usage-report`
+
+### with web dashboard
+This is untested with the xk6-sql extension
+``` powershell
+$Env:K6_WEB_DASHBOARD = 'true'
+./k6.exe run ./test.js --no-usage-report
+```
+
+Open browser to  `http://127.0.0.1:5665`
+
+Reference: https://grafana.com/docs/k6/latest/results-output/web-dashboard/

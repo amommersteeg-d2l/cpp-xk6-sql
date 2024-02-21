@@ -2,9 +2,19 @@ import sql from 'k6/x/sql';
 import { check } from 'k6';
 
 export const options = {
-  vus: 2,
-  // iterations: 4
-  duration: '10s'
+  // vus: 2,
+  // //iterations: 4,
+  // duration: '10s'
+  scenarios: {
+    default: {
+      executor: 'constant-arrival-rate',
+      duration: '5s',
+      rate: '10',
+      timeUnit: '1s',
+      preAllocatedVUs: 2,
+      maxVUs: 10
+    }
+  }
 }
 
 const connectionString = 'sqlserver://D2L-4bChsM4223c:1433?database=Test&trusted+connection=yes';
